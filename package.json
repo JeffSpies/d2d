@@ -1,11 +1,11 @@
 {
-  "name": "template",
+  "name": "d2d",
   "author": "@jeffspies",
   "version": "0.0.1",
   "license": "MIT",
   "main": "main.js",
   "bin": {
-    "cli": "./bin/run"
+    "d2d": "./bin/run"
   },
   "files": [
     "/bin",
@@ -33,12 +33,14 @@
   "devDependencies": {
     "@types/klaw": "^3.0.2",
     "@types/node": "^16.9.2",
+    "json": "^11.0.0",
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
   },
   "scripts": {
     "clean": "rimraf lib example/build/templates",
     "build": "tsc",
-    "cli-dev": "npm run build && node bin/cli.js"
+    "cli-dev": "npm run build && node bin/cli.js",
+    "start": "node bin/run"
   }
 }

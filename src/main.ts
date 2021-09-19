@@ -30,7 +30,7 @@ export async function renderFileToDirectory (input: string, output: string, opti
 
 }
 
-export async function renderFileToFile (input: string, output: string options) {
+export async function renderFileToFile (input: string, output: string, options) {
   console.log('todo')
   const data = getData(options)
 

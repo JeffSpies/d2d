@@ -2,6 +2,8 @@ import { Command } from 'commander'
 import fs from 'fs'
 import path from 'path'
 
+import version from './version'
+
 import * as engine from './main'
 
 function checkSource (path: string): boolean {
@@ -17,7 +19,11 @@ function checkSource (path: string): boolean {
   return sourceIsDirectory
 }
 
-async function action (source: string, destination: string, options): Promise<void> {
+async function action (
+  source: string,
+  destination: string,
+  options
+): Promise<void> {
   const sourcePath = path.resolve(source)
   const sourceIsDirectory = checkSource(sourcePath)
  
@@ -98,7 +104,7 @@ async function action (source: string, destination: string, options): Promise<vo
 export function run (): void {
   const program = new Command()
   program
-    .version('0.0.1')
+    .version(version)
     .description('Runs the contents of an input folder through the eta templating engine to generate a new folder')
     .argument('<source>', 'source path (e.g., ./templates)')
     .argument('[destination]', 'destination path (e.g., ./build/templates)')
