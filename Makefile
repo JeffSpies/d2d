@@ -3,12 +3,12 @@ VERSION := 0.0.1
 DOCKER_REPO := jeffspies/d2d
 DOCKER_TAG := $(DOCKER_REPO):$(VERSION)
 
+SRC_DIR := src
+SRC_FILES := $(shell find $(SRC_DIR) -type f)
+
 node_modules: package.json
 	@yarn
 	@touch node_modules
-
-SRC_DIR := src
-SRC_FILES := $(shell find $(SRC_DIR) -type f)
 
 lib: node_modules $(SRC_DIR) $(SRC_FILES) tsconfig.json
 	@yarn run clean

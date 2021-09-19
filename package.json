@@ -1,6 +1,10 @@
 {
   "name": "d2d",
-  "author": "@jeffspies",
+  "author": {
+    "name": "Jeffrey Spies",
+		"email": "code@jeffspies.com",
+		"url": "https://jeffspies.com"
+  },  
   "version": "0.0.1",
   "license": "MIT",
   "main": "main.js",
