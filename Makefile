@@ -13,7 +13,7 @@ lib: node_modules $(SRC_DIR) $(SRC_FILES) tsconfig.json
 	@touch lib
 
 build/checkpoint:
-	mkdir -p build/checkpoint
+	@mkdir -p build/checkpoint
 
 build/checkpoint/docker-build: build/checkpoint lib bin package.json Dockerfile
 	@docker build -t template .
@@ -21,13 +21,15 @@ build/checkpoint/docker-build: build/checkpoint lib bin package.json Dockerfile
 
 .PHONY: update-version
 update-version:
+	$(info Updating versions...)
 	@echo "const version = '$(VERSION)'\nexport default version" > src/version.ts
 	@npx json -I -f package.json -e 'this.version="$(VERSION)"'
 
 .PHONY: publish
 publish: update-version
 # git commit with tag
-	npm publish
+	$(info Publishing to NPM...)
+	@npm publish
 # docker publish
 
 .PHONY: run
