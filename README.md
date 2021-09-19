@@ -9,10 +9,11 @@
   <img src="https://img.shields.io/github/license/jeffspies/d2d" alt="Shield showing the repo license" /><a>
 </p>
 
-d2d is a templating engine
+> It's basic use is to generate files from a source template directory, but with a map file it can send templated files anywhere.
 
 ## Features
- - 
+- 🚀 Uses the hyper-fast and robust [Eta](https://github.com/eta-dev/eta) templating engine 
+- 📦 Has a docker image for repeatable templating in your build processes
 
 ## Usage
 
