@@ -12,7 +12,10 @@ lib: node_modules $(SRC_DIR) $(SRC_FILES) tsconfig.json
 	@yarn run build
 	@touch lib
 
-build/checkpoint/docker-build: lib bin package.json Dockerfile
+build/checkpoint:
+	mkdir -p build/checkpoint
+
+build/checkpoint/docker-build: build/checkpoint lib bin package.json Dockerfile
 	@docker build -t template .
 	@touch build/checkpoint/docker-build
 
@@ -39,6 +42,6 @@ run: build/checkpoint/docker-build
 
 .PHONY: clean
 clean:
-	@rm -rf example/build/templates
+	@rm -rf build lib node_modules example/build/templates
 
 .DEFAULT_GOAL := run
