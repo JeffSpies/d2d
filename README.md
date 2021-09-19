@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/github/license/jeffspies/d2d" alt="Shield showing the repo license" /><a>
 </p>
 
-> It's basic use is to generate files from a source template directory, but with a map file it can send templated files anywhere.
+> It's basic use is to generate a direcory of files from a source template directory and configuration file, but with a map file it can send templated files anywhere.
 
 ## Features
 - 🚀 Uses the hyper-fast and robust [Eta](https://github.com/eta-dev/eta) templating engine 
