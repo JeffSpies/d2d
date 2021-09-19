@@ -3,7 +3,8 @@ import klaw from 'klaw'
 import path from 'path'
 import { promises as fs } from 'fs'
 import * as Eta from 'eta'
-import mkdirp from 'mkdirp'
+import makeDir from 'make-dir'
+import _ from 'lodash'
 
 function getData (options) {
   const envPath = options.envPath
@@ -15,7 +16,9 @@ function getData (options) {
   })
 
   return {
-    env: process.env
+    _,
+    env: process.env,
+    process
   }
 }
 
@@ -41,7 +44,8 @@ export async function renderDirectoryToDirectory (input: string, output: string,
   const outputDir =  path.resolve(output)
 
   try {
-    mkdirp.sync(outputDir)
+    // mkdirp.sync(outputDir)
+    await makeDir(outputDir)
   } catch (err) {
     if (err.code !== 'EEXIST') throw err
   }

@@ -1,5 +1,8 @@
 VERSION := 0.0.1
 
+DOCKER_REPO := jeffspies/d2d
+DOCKER_TAG := $(DOCKER_REPO):$(VERSION)
+
 node_modules: package.json
 	@yarn
 	@touch node_modules
@@ -16,7 +19,7 @@ build/checkpoint:
 	@mkdir -p build/checkpoint
 
 build/checkpoint/docker-build: build/checkpoint lib bin package.json Dockerfile
-	@docker build -t template .
+	@docker build -t $(DOCKER_TAG) .
 	@touch build/checkpoint/docker-build
 
 .PHONY: update-version
@@ -26,10 +29,12 @@ update-version:
 	@npx json -I -f package.json -e 'this.version="$(VERSION)"'
 
 .PHONY: publish
-publish: update-version
+publish: build/checkpoint/docker-build update-version
 # git commit with tag
 	$(info Publishing to NPM...)
-	@npm publish
+	# @npm publish
+	$(info Publishing to Docker...)
+	@docker push $(DOCKER_TAG)
 # docker publish
 
 .PHONY: run
@@ -40,7 +45,7 @@ run: build/checkpoint/docker-build
 		-v $(PWD)/example/.env:/.env \
 		-v $(PWD)/example/templates:/input \
 		-v $(PWD)/example/build/templates:/output \
-		template
+		$(DOCKER_TAG)
 
 .PHONY: clean
 clean:

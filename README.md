@@ -1,6 +1,6 @@
-# Name
+# d2d - Directory to Directory Templating
 
-Name is a templating engine
+d2d is a templating engine
 
 ## Features
  - 

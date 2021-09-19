@@ -11,6 +11,13 @@
     "/bin",
     "/lib/**/*.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jeffspies/d2d.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeffspies/d2d/issues"
+  },
   "keywords": [
     "directory",
     "folder",
@@ -28,7 +35,8 @@
     "dotenv": "^10.0.0",
     "eta": "^1.12.3",
     "klaw": "^4.0.1",
-    "mkdirp": "^1.0.4"
+    "lodash": "^4.17.21",
+    "make-dir": "^3.1.0"
   },
   "devDependencies": {
     "@types/klaw": "^3.0.2",
