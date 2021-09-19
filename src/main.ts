@@ -3,7 +3,6 @@ import klaw from 'klaw'
 import path from 'path'
 import { promises as fs } from 'fs'
 import * as Eta from 'eta'
-import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
 
 function getData (options) {
@@ -20,28 +19,26 @@ function getData (options) {
   }
 }
 
-export async function renderFile (input, options) {
+export async function renderFile (input: string, options) {
   const data = getData(options)
   return await Eta.renderFile(input, data, { useWith: true })
 }
 
-export async function renderFileToDirectory (input, output, options) {
+export async function renderFileToDirectory (input: string, output: string, options) {
   console.log('todo')
   const data = getData(options)
 
 }
 
-export async function renderFileToFile (input, output, options) {
+export async function renderFileToFile (input: string, output: string options) {
   console.log('todo')
   const data = getData(options)
 
 }
 
-export async function renderDirectoryToDirectory (input, output, options) {
+export async function renderDirectoryToDirectory (input: string, output: string, options) {
   const inputDir = path.resolve(input)
   const outputDir =  path.resolve(output)
-
-  rimraf.sync(path.join(outputDir, '*'))
 
   try {
     mkdirp.sync(outputDir)

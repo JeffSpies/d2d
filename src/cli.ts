@@ -4,8 +4,8 @@ import path from 'path'
 
 import * as engine from './main'
 
-function checkSource (path) {
-  let sourceIsDirectory
+function checkSource (path: string): boolean {
+  let sourceIsDirectory: boolean
   try {
     sourceIsDirectory = fs.statSync(path).isDirectory()
   } catch (err) {
@@ -17,7 +17,7 @@ function checkSource (path) {
   return sourceIsDirectory
 }
 
-async function action (source, destination, options) {
+async function action (source: string, destination: string, options): Promise<void> {
   const sourcePath = path.resolve(source)
   const sourceIsDirectory = checkSource(sourcePath)
  
@@ -95,7 +95,7 @@ async function action (source, destination, options) {
   return
 }
 
-export function run () {
+export function run (): void {
   const program = new Command()
   program
     .version('0.0.1')

@@ -23,3 +23,5 @@ run: build/checkpoint/docker-build
 		-v $(PWD)/example/templates:/input \
 		-v $(PWD)/example/build/templates:/output \
 		template
+
+.DEFAULT_GOAL := run
