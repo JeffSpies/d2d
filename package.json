@@ -1,0 +1,44 @@
+{
+  "name": "template",
+  "author": "@jeffspies",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "main.js",
+  "bin": {
+    "cli": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/lib/**/*.js"
+  ],
+  "keywords": [
+    "directory",
+    "folder",
+    "template",
+    "eta",
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
+  ],
+  "dependencies": {
+    "commander": "^8.2.0",
+    "dotenv": "^10.0.0",
+    "eta": "^1.12.3",
+    "klaw": "^4.0.1",
+    "mkdirp": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/klaw": "^3.0.2",
+    "@types/node": "^16.9.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "clean": "rimraf lib example/build/templates",
+    "build": "tsc",
+    "cli-dev": "npm run build && node bin/cli.js"
+  }
+}

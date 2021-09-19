@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es2015"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "outDir": "lib/"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "!node_modules/@types"
+  ]
+}

@@ -1,0 +1,20 @@
+.DS_Store
+.vscode/
+node_modules/
+yarn-debug.log*
+yarn-error.log
+scratch
+
+lib
+
+# Ignore files and folders recursively
+/build/**
+/example/build/**
+# Then exclude folders
+!/build/**/
+!/example/build/**/
+# Then exclude .gitkeeps
+!/**/.gitkeep
+
+.env*
+!example/.env
