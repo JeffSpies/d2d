@@ -13,12 +13,36 @@
 
 ## Features
 - 🚀 Uses the hyper-fast and robust [Eta](https://github.com/eta-dev/eta) templating engine 
-- 📦 Has a docker image for repeatable templating in your build processes
+- 🔨 Has a docker image for repeatable templating in your build processes
 
 ## Usage
 
 ### Docker
-
+```sh
+docker run \
+  --user $(UID):$(GID) \
+  -v $(PWD)/example/.env:/.env \
+  -v $(PWD)/example/templates:/input \
+  -v $(PWD)/example/build/templates:/output \
+  jeffspies/d2d:latest
+```
+  
 ### CLI
+```sh
+npm install -g d2d
+d2d --help
+d2d example/templates example/build/templates --env example/.env
+```
 
 ### Node Library
+```sh
+npm install d2d
+# or
+yarn add d2d
+```
+  
+```js
+import * as d2d from 'd2d'
+// or
+const d2d = require('d2d')
+```
