@@ -1,8 +1,7 @@
+DOCKER_REPO := jeffspies/d2d
 VERSION := 0.0.1
 
-DOCKER_REPO := jeffspies/d2d
 DOCKER_TAG := $(DOCKER_REPO):$(VERSION)
-
 SRC_DIR := src
 SRC_FILES := $(shell find $(SRC_DIR) -type f)
 
@@ -37,8 +36,8 @@ publish: build/checkpoint/docker-build update-version
 	@docker push $(DOCKER_TAG)
 # docker publish
 
-.PHONY: run
-run: build/checkpoint/docker-build
+.PHONY: docker
+docker: build/checkpoint/docker-build
 	$(info Generating templated content...)
 	@docker run \
 		--user $(UID):$(GID) \
@@ -46,6 +45,10 @@ run: build/checkpoint/docker-build
 		-v $(PWD)/example/templates:/input \
 		-v $(PWD)/example/build/templates:/output \
 		$(DOCKER_TAG)
+
+.PHONY: run
+run: lib
+	@npm start
 
 .PHONY: clean
 clean:

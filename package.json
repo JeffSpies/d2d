@@ -8,13 +8,6 @@
   "version": "0.0.1",
   "license": "MIT",
   "main": "main.js",
-  "bin": {
-    "d2d": "./bin/run"
-  },
-  "files": [
-    "/bin",
-    "/lib/**/*.js"
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/jeffspies/d2d.git"
@@ -22,7 +15,15 @@
   "bugs": {
     "url": "https://github.com/jeffspies/d2d/issues"
   },
+  "bin": {
+    "d2d": "./bin/run"
+  },
+  "files": [
+    "/bin",
+    "/lib/**/*.js"
+  ],
   "keywords": [
+    "d2d",
     "directory",
     "folder",
     "template",

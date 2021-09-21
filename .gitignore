@@ -1,12 +1,18 @@
 .DS_Store
 .vscode/
 node_modules/
-yarn-debug.log*
-yarn-error.log
+*-debug.log*
+*-error.log
 scratch
 
 build
 lib
+
+/lib
+/package-lock.json
+/tmp
+/.nyc_output
+/coverage
 
 # Ignore files and folders recursively
 /example/build/**
